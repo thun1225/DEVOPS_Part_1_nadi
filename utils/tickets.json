@@ -20,5 +20,16 @@
     "dateOfTravel": "21 jan 2020",
     "cardNumber": "888888888888",
     "id": "1729843813966471"
+  },
+  {
+    "name": "RAGASWARUPA",
+    "email": "ragaswarupa.g@gmail.com",
+    "phoneNumber": "88340282",
+    "quantity": "2",
+    "location": "tampines",
+    "dateOfBooking": "211212",
+    "dateOfTravel": "12121",
+    "cardNumber": "233333333333",
+    "id": "1729846633656098"
   }
 ]

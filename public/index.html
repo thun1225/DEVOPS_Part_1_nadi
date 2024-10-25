@@ -1,12 +1,67 @@
-<html>
-
+<!DOCTYPE html>
 <head>
-    <title> DVOPS GROUP PROJECT</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="js/ticket.js"></script>
 </head>
-
 <body>
-    Welcome. This is our devOps group project. 
-    
-</body>
+<div class="container mt-5">
+<div class="row justify-content-center">
 
+
+
+
+    <!-- change the html front end form -->
+    
+<form>
+
+<label for="name"> Name</label>
+<input type="text" class="form-control" id="name" placeholder="Enter
+resource name">
+
+<label for="email"> email</label>
+<input type="text" class="form-control" id="email" placeholder="Enter
+your email">
+
+<label for="phoneNumber"> Phone Number</label>
+<input type="text" class="form-control" id="phoneNumber" placeholder="Enter
+your phone number">
+
+<label for="quantity"> quantity</label>
+<input type="text" class="form-control" id="quantity" >
+
+<label for="location"> location</label>
+<input type="text" class="form-control" id="location" >
+
+<label for="dateOfBooking"> dateOfBooking</label>
+<input type="text" class="form-control" id="dateOfBooking" >
+
+<label for="dateOfTravel"> dateOfTravel</label>
+<input type="text" class="form-control" id="dateOfTravel">
+
+<label for="cardNumber"> cardNumber</label>
+<input type="text" class="form-control" id="cardNumber" >
+
+
+
+
+
+
+
+
+
+
+<p align="right" id="message" class=""></p>
+</form>
+
+
+
+</div>
+<button type="button" class="btn btn-primary" onclick="addTrainTicket()">book train ticket</button>
+</div>
+</div>
+</div>
+</div>
+</body>
 </html>
