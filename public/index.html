@@ -2,66 +2,200 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<title>Travel booking</title>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script
+src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script
+src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+rel="stylesheet">
 <script src="js/ticket.js"></script>
+<link rel="stylesheet" href="css/styles.css">
 </head>
+
+
 <body>
-<div class="container mt-5">
-<div class="row justify-content-center">
+
+
+    <div class="container">
+        <div class="card">
+           <img src="images/train1.png" alt="">
+            <p>Sydney to New Zealand</p>
+            <p>7pm to 9pm</p>
+
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ticketModal">
+                Book this train
+              </button>
+
+
+        </div>
+        <div class="card">
+            <img src="images/train2.jpg" alt="">
+            <p>Sydney to New Zealand</p>
+            <p>7pm to 9pm</p>
+
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ticketModal">
+                Book this train
+              </button>
+        </div>
+        <div class="card">
+            <img src="images/train3.jpeg" alt="">
+            <p>Sydney to New Zealand</p>
+            <p>7pm to 9pm</p>
+            
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ticketModal">
+                Book this train
+              </button>
+        </div>
+    </div>
 
 
 
 
-    <!-- change the html front end form -->
-    
+
+
+
+<!-- 
+<div class="col-md-2">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ticketModal">
+    Book this train
+  </button> -->
+  
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="ticketModal" tabindex="-1" role="dialog" aria-
+labelledby="ticketModalLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="ticketModalLabel">Create Booking Reservation</h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
 <form>
+<div class="form-group">
 
-<label for="name"> Name</label>
-<input type="text" class="form-control" id="name" placeholder="Enter
-resource name">
+<label for="name">Full Name</label>
+<input type="text" class="form-control" id="name" placeholder="Enter your name">
 
-<label for="email"> email</label>
-<input type="text" class="form-control" id="email" placeholder="Enter
-your email">
+</div>
+<div class="form-group">
 
-<label for="phoneNumber"> Phone Number</label>
-<input type="text" class="form-control" id="phoneNumber" placeholder="Enter
-your phone number">
-
-<label for="quantity"> quantity</label>
-<input type="text" class="form-control" id="quantity" >
-
-<label for="location"> location</label>
-<input type="text" class="form-control" id="location" >
-
-<label for="dateOfBooking"> dateOfBooking</label>
-<input type="text" class="form-control" id="dateOfBooking" >
-
-<label for="dateOfTravel"> dateOfTravel</label>
-<input type="text" class="form-control" id="dateOfTravel">
-
-<label for="cardNumber"> cardNumber</label>
-<input type="text" class="form-control" id="cardNumber" >
+<label for="email">Email</label>
+<input type="text" class="form-control" id="email" placeholder="@gmail.com">
 
 
+</div>
+
+
+<div class="form-group">
+
+<label for="phoneNumber">Phone Number</label>
+<input type="text" class="form-control" id="phoneNumber" placeholder="Phone number">
+
+</div>
+
+
+<div class="form-group">
+
+<label for="quantity">Number of tickets you would like to book</label>
+
+<select name="quantity" id="quantity" class="form-control">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+  </select>
+
+</div>
+
+
+<div class="form-group">
+    
+
+<label for="location">Select the route</label>
+
+<select name="location" id="location" class="form-control">
+    <option value="Perth to Kalgoorlie">Perth to Kalgoorlie</option>
+    <option value="Melbourne to Sydney">Melbourne to Sydney</option>
+    <option value="Townsvillie to Brisbane">Townsvillie to Brisbane </option>
+    <option value="Sydney to Canberra">Sydney to Canberra</option>
+  </select>
+    
+    </div>
 
 
 
+    <div class="form-group">
+
+        <label for="dateOfTravel"> Choose the date of travel</label>
+        <input type="date" class="form-control" id="dateOfTravel" placeholder="Date of Travel">
+            
+    </div>
 
 
 
+    <div class="form-group">
+    
+
+        <label for="time">Select the time</label>
+        
+        <select name="time" id="time" class="form-control">
+            <option value="13:00 - 16:00">13:00 - 16:00</option>
+            <option value="17:00 - 20:00">17:00 - 20:00</option>
+            <option value="21:00 - 0:00">21:00 - 0:00</option>
+            <option value="06:00 - 09:00">06:00 - 09:00</option>
+          </select>
+    </div>
+        
+
+
+
+    <div class="form-group">
+        <label for="cardNumber"> Enter your payment card number</label>
+        <input type="text" class="form-control" id="cardNumber" placeholder="Card number">
+    </div>
+
+    
 
 
 <p align="right" id="message" class=""></p>
+
+
+
+
+
 </form>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+<button type="button" class="btn btn-primary" onclick="addTrainTicket()">Confirm booking</button>
+</div>
+</div>
+</div>
+</div>
 
 
 
-</div>
-<button type="button" class="btn btn-primary" onclick="addTrainTicket()">book train ticket</button>
-</div>
-</div>
-</div>
-</div>
+
+
+
+
 </body>
 </html>
+
+
+

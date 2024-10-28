@@ -30,7 +30,7 @@ async function addTrainTicket(req, res) {
     const phoneNumber = req.body.phoneNumber;
     const quantity = req.body.quantity;
     const location = req.body.location;
-    const dateOfBooking = req.body.dateOfBooking;
+    const time = req.body.time;
     const dateOfTravel = req.body.dateOfTravel;
     const cardNumber = req.body.cardNumber
 
@@ -111,6 +111,5 @@ async function addTrainTicket(req, res) {
 module.exports = {
   readJSON,
   writeJSON,
-  //addTicket,
   addTrainTicket
 };

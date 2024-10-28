@@ -2,19 +2,15 @@ function addTrainTicket() {
   var response = "";
   var jsonData = new Object();
 
-
-
-
-
   jsonData.name = document.getElementById("name").value;
   jsonData.email = document.getElementById("email").value;
   jsonData.phoneNumber = document.getElementById("phoneNumber").value;
   jsonData.quantity = document.getElementById("quantity").value;
   jsonData.location = document.getElementById("location").value;
-  jsonData.dateOfBooking = document.getElementById("dateOfBooking").value;
+  //jsonData.dateOfBooking = document.getElementById("dateOfBooking").value;
   jsonData.dateOfTravel = document.getElementById("dateOfTravel").value;
+  jsonData.time = document.getElementById("time").value;
   jsonData.cardNumber = document.getElementById("cardNumber").value;
-
 
 
 
@@ -24,8 +20,8 @@ function addTrainTicket() {
     jsonData.phoneNumber == "" ||
     jsonData.quantity == "" ||
     jsonData.location == "" ||
-    jsonData.dateOfBooking == "" ||
     jsonData.dateOfTravel == "" ||
+    jsonData.time == "" ||
     jsonData.cardNumber == ""
  
   ) {
@@ -52,9 +48,12 @@ document.getElementById("name").value = "";
  document.getElementById("phoneNumber").value = "";
   document.getElementById("quantity").value = "";
 document.getElementById("location").value = "";
- document.getElementById("dateOfBooking").value = "";
+ document.getElementById("time").value = "";
   document.getElementById("dateOfTravel").value = "";
  document.getElementById("cardNumber").value = "";
+
+
+ alert("Booking successful please check your email for more information!")
 
 
 
