@@ -74,29 +74,57 @@ function addHotel() {
     request.send(JSON.stringify(jsonData));
 }
 
-// Function to view all hotels
+// function viewHotels() {
+//     var response = '';
+//     var request = new XMLHttpRequest();
+//     request.open('GET', '/view-hotels', true);
+//     request.setRequestHeader('Content-Type', 'application/json');
+//     request.onload = function () {
+//         response = JSON.parse(request.responseText);
+//         var html = '';
+//         for (var i = 0; i < response.length; i++) {
+//             html += '<tr>' +
+//                 '<td>' + (i + 1) + '</td>' +
+//                 '<td>' + response[i].name + '</td>' +
+//                 '<td>' + response[i].location + '</td>' +
+//                 '<td>' + response[i].description + '</td>' +
+//                 '<td>' + response[i].owner + '</td>' +
+//                 '<td>' +
+//                 '<button type="button" class="btn btn-warning" onclick="editHotel(\'' + 
+//                 JSON.stringify(response[i]).replaceAll('\"', '&quot;') + '\')">Edit</button> ' +
+//                 '<button type="button" class="btn btn-danger" onclick="deleteHotel(' + 
+//                 response[i].id + ')">Delete</button>' +
+//                 '</td>' +
+//             '</tr>';
+//         }
+//         document.getElementById('tableContent').innerHTML = html;
+//     };
+//     request.send();
+// }
+
 function viewHotels() {
+    var response = '';
     var request = new XMLHttpRequest();
-    request.open("GET", "/view-hotels", true);
+    request.open('GET', '/view-hotels', true);
+    request.setRequestHeader('Content-Type', 'application/json');
     request.onload = function () {
-        var hotels = JSON.parse(request.responseText);
-        var tableContent = "";
-        hotels.forEach(function (hotel) {
-            tableContent += "<tr>";
-            tableContent += "<td>" + hotel.id + "</td>";
-            tableContent += "<td>" + hotel.name + "</td>";
-            tableContent += "<td>" + hotel.location + "</td>";
-            tableContent += "<td>" + hotel.description + "</td>";
-            tableContent += "<td>" + hotel.owner + "</td>";
-            tableContent += "</tr>";
-        });
-        document.getElementById("tableContent").innerHTML = tableContent;
-    };
-    request.onerror = function () {
-        alert("Unable to load hotels. Please try again.");
+        response = JSON.parse(request.responseText);
+        var html = '';
+        for (var i = 0; i < response.length; i++) {
+            html += `
+                <div class="col-md-4 mb-4">
+                    <div class="card text-center">
+                        <img src="images/hotel.jpg" class="card-img-top" alt="Hotel Image">
+                        <div class="card-body">
+                            <h5 class="card-title">${response[i].name}</h5>
+                            <button class="btn btn-primary">Book now</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+        document.getElementById('hotelGrid').innerHTML = html;
     };
     request.send();
 }
-
-
 
