@@ -50,17 +50,6 @@ rel="stylesheet">
         </div>
     </div>
 
-
-
-
-
-
-
-<!-- 
-<div class="col-md-2">
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ticketModal">
-    Book this train
-  </button> -->
   
 </div>
 </div>
@@ -100,6 +89,18 @@ labelledby="ticketModalLabel" aria-hidden="true">
 
 </div>
 
+ <div class="form-group">
+        <label for="gender">Gender</label>
+        <div>
+          <input type="radio" id="male" name="gender" value="male" checked>
+          <label for="male">Male</label>
+        </div>
+        <div>
+          <input type="radio" id="female" name="gender" value="female">
+          <label for="female">Female</label>
+        </div>
+      </div>
+       
 
 <div class="form-group">
 
@@ -176,22 +177,40 @@ labelledby="ticketModalLabel" aria-hidden="true">
 
 
 
+    
+<input type="checkbox" id="termsconditions" name="termsconditions" value="termsconditions">
+<label for="termsconditions">I have read the terms & conditions</label><br>
 
 
 </form>
+
+
+
+
+
 </div>
+
+
+
+
+
+
+
+
 <div class="modal-footer">
+
+
+
+
 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-<button type="button" class="btn btn-primary" onclick="addTrainTicket()">Confirm booking</button>
+
+
+
+<button type="button" class="btn btn-primary" onclick="createTrainTicketReservation()">Confirm booking</button>
 </div>
 </div>
 </div>
 </div>
-
-
-
-
-
 
 
 </body>

@@ -1,17 +1,19 @@
 //this is my train ticket model
 
 class Ticket {
-    constructor(name,email,phoneNumber,quantity,location,dateOfTravel, dateOfBooking, cardNumber) {
+    constructor(name,gender,email,phoneNumber,quantity,location,dateOfTravel, time, cardNumber,termsconditions) {
 
 
     this.name = name;
+    this.gender = gender
     this.email = email;
     this.phoneNumber = phoneNumber;
     this.quantity = quantity;
     this.location = location;
-    this.dateOfBooking = dateOfBooking;
     this.dateOfTravel = dateOfTravel;
+    this.time = time;
     this.cardNumber = cardNumber
+    this.termsconditions = termsconditions
 
 
 

@@ -10,8 +10,8 @@ app.use(bodyParser.json());
 app.use(express.static("./public"));
 
 
-const { addTrainTicket } = require('./utils/TicketUtil')
-app.post('/add-ticket-booking', addTrainTicket);
+const { createTrainTicketReservation } = require('./utils/TicketUtil')
+app.post('/add-ticket-booking', createTrainTicketReservation);
 
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/public/" + startPage);
