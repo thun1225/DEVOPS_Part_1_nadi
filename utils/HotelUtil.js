@@ -32,6 +32,15 @@ async function addHotel(req, res) {
         return res.status(500).json({ message: error.message });
     }
 }
+
+async function viewHotels(req, res) {
+    try {
+        const allHotels = await readJSON('utils/hotels.json');
+        return res.status(201).json(allHotels);
+    } catch (error) {
+        return res.status(500).json({ message: error.message });
+    }
+}
 module.exports = {
-    readJSON, writeJSON, addHotel
+    readJSON, writeJSON, addHotel, viewHotels
 };

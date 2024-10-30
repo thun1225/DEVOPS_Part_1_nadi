@@ -8,8 +8,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static("./public"));
 
-const { addHotel } = require('./utils/HotelUtil')
+const { addHotel, viewHotels } = require('./utils/HotelUtil')
 app.post('/add-hotel', addHotel);
+app.get('/view-hotels', viewHotels);
+
 
 app.get('/', (req, res) => {
     res.sendFile(__dirname + "/public/" + startPage);

@@ -1,1 +1,23 @@
-[{"name":"Hillton Hotel","location":"singapore","description":"the best views are here","owner":"john@gmail.com","id":"1729837748969376"},{"name":"flora hotel","location":"new york","description":"best price ","owner":"nadi@gmail.com","id":"1729854071239392"}]
+[
+    {
+        "name": "Sirenixxxx",
+        "location": "singapore",
+        "description": "the best views are here",
+        "owner": "john@gmail.com",
+        "id": "1730278510149276"
+    },
+    {
+        "name": "winx club",
+        "location": "singapr",
+        "description": "fasdfasdf",
+        "owner": "john@gmail.com",
+        "id": "1730278810485405"
+    },
+    {
+        "name": "Sirenixxxx",
+        "location": "singapore",
+        "description": "the best views are here",
+        "owner": "john@gmail.com",
+        "id": "1730278820223241"
+    }
+]
