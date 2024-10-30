@@ -59,6 +59,7 @@ function createTrainTicketReservation() {
       const genderRadios = document.getElementsByName("gender");
       genderRadios.forEach((radio) => (radio.checked = false));
 
+      
       alert("Booking successful please check your email for more information!");
     } else {
       alert(response.message)
