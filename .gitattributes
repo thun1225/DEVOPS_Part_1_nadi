@@ -1,0 +1,14 @@
+#specifying how git should treat certain folders & files
+
+
+#for users who use different operating system this will normalize line endings
+
+*.txt text
+
+
+#preventing git from performing text-based operations to images 
+
+*.png binary
+*.zip binary
+*.jpeg binary
+*.jpg binary
