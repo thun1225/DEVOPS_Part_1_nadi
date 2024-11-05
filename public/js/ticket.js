@@ -50,9 +50,9 @@ function createTrainTicketReservation() {
       document.getElementById("email").value = "";
       document.getElementById("phoneNumber").value = "";
       document.getElementById("quantity").value = "1";
-      document.getElementById("location").value = "";
+      document.getElementById("location").value = "Perth to Kalgoorlie";
       document.getElementById("dateOfTravel").value = "";
-      document.getElementById("time").value = "";
+      document.getElementById("time").value = "13:00 - 16:00";
       document.getElementById("cardNumber").value = "";
       document.getElementById("termsconditions").checked = false;
 

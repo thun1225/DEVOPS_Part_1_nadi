@@ -28,7 +28,6 @@ async function createTrainTicketReservation(req, res) {
     const name = req.body.name;
     const gender = req.body.gender;
     const email = req.body.email;
-  
     const phoneNumber = req.body.phoneNumber;
     const quantity = req.body.quantity;
     const location = req.body.location;
@@ -43,10 +42,8 @@ async function createTrainTicketReservation(req, res) {
 
 
     const Nameregex = /^[A-Za-z\s'-]+$/;
-
     const Numberregex = /^[0-9]+$/;
     const Emailregex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
-
 
 
     if(

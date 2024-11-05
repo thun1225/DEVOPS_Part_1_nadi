@@ -1,8 +1,6 @@
 # here i will be mentioning files which i do not want them to be sent over to the repo
 
-
-
-
 public/css/train-ticket.css
 
 *.txt
+
