@@ -33,10 +33,17 @@
  
  
     <div class="button-container">
-        <button class="feature-button">View hotels</button>
+        <button id="view-hotels-button" class="feature-button">View hotels</button>
         <button class="feature-button">View tours</button>
         <button class="feature-button">View Train Tickets</button>
     </div>
+    
+    <script>
+        document.getElementById("view-hotels-button").onclick = function () {
+            window.location.href = "index.html";
+        };
+    </script>
+    
  
  
  
