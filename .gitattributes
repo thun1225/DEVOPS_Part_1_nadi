@@ -1,0 +1,7 @@
+#Treating the images as binary so that git doesnt read the files as texts
+*.jpg binary
+*.png binary
+
+#applying line ending normalization to txt files for different operating systems
+*.txt text
+
