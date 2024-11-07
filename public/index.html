@@ -12,31 +12,66 @@
       rel="stylesheet"
     />
     <script src="js/createTourPackage.js"></script>
+    <script src="js/viewTourPackage.js"></script>
     <link rel="stylesheet" href="css/styles.css" />
   </head>
-  <body>
-    <img
-      src="https://content.paulreiffer.com/wp-content/uploads/2013/08/Fine-Art-Limited-Edition-Print-Wall-Corporate-Decoration-Interior-Design-Paul-Reiffer-Photographer-Photography-High-End-Landscape-Cityscape-Buy-Own-Investment-The-Morning-After-Sydney-Opera-House.jpg"
-      width="100%"
-      height="300"
-    />
-    <div class="container mt-5">
-      <div class="row justify-content-center">
-        <div class="col-md-10"></div>
-        <div class="col-md-2">
-          <button
-            type="button"
-            class="btn btn-primary"
-            data-toggle="modal"
-            data-target="#resourceModal"
-          >
-            Create Tour Package
-          </button>
+  <body onload="viewTour()">
+    <nav class="navbar">
+      <div class="logo-container">
+        <div class="logo"></div>
+        <span>Our logo</span>
+      </div>
+      <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="#">Contact us</a>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="package-card add-package">
+        <div>
+          <h2>Add New Package</h2>
+          <p>To add, click on the plus sign</p>
         </div>
+        <button
+          type="button"
+          class="add-button"
+          data-toggle="modal"
+          data-target="#resourceModal"
+        ></button>
+      </div>
+
+      <div class="package-card">
+        <h2>All Packages</h2>
+        <p>List of all packages</p>
+        <div class="form-group">
+          <input
+            type="text"
+            id="searchInput"
+            class="form-control"
+            placeholder="Search Packages"
+            oninput="searchPackages()"
+          />
+        </div>
+
+        <table class="package-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Host</th>
+              <th>Location</th>
+              <th>Package Name</th>
+              <th>Category</th>
+              <th>Duration</th>
+              <th>Phone</th>
+              <th>Email</th>
+              <th>Price</th>
+            </tr>
+          </thead>
+          <tbody id="tableContent"></tbody>
+        </table>
       </div>
     </div>
-
-    <!-- Modal -->
     <div
       class="modal fade"
       id="resourceModal"
@@ -93,12 +128,12 @@
                 <label for="category">Category</label>
                 <select id="category" class="form-control">
                   <option value="category">Select Category</option>
-                  <option value="asia">Asia</option>
-                  <option value="europe">Europe</option>
-                  <option value="oceania">Oceania</option>
-                  <option value="africa">Africa</option>
-                  <option value="northAmerica">North America</option>
-                  <option value="southAmerica">South America</option>
+                  <option value="Asia">Asia</option>
+                  <option value="Europe">Europe</option>
+                  <option value="Oceania">Oceania</option>
+                  <option value="Africa">Africa</option>
+                  <option value="North America">North America</option>
+                  <option value="South America">South America</option>
                 </select>
               </div>
               <div class="form-group">
@@ -148,12 +183,73 @@
             >
               Close
             </button>
-            <button type="button" class="btn btn-primary" id="addTourPackage">
+            <button
+              type="button"
+              disabled
+              class="btn btn-primary"
+              id="addTravelPackage"
+            >
               Add New Tour Package
             </button>
           </div>
         </div>
       </div>
     </div>
+    <script>
+      const inputIds = [
+        "host",
+        "location",
+        "packageName",
+        "category",
+        "duration",
+        "phone",
+        "email",
+        "price"
+      ];
+      const button = document.getElementById("addTravelPackage");
+
+      const checkInputs = () => {
+        // Check if any input field has a non-empty value
+        const isAnyInputFilled = inputIds.some(
+          (id) => document.getElementById(id).value.trim() !== ""
+        );
+
+        // Enable the button if any input has a value, otherwise disable it
+        button.disabled = !isAnyInputFilled;
+      };
+
+      inputIds.forEach((id) => {
+        const input = document.getElementById(id);
+        input.addEventListener("input", checkInputs);
+      });
+
+      const searchPackages = () =>{
+        const input = document.getElementById("searchInput");
+        const filter = input.value.toLowerCase();
+        const table = document.getElementById("tableContent");
+        const rows = table.getElementsByTagName("tr");
+
+        for (let i = 0; i < rows.length; i++) {
+          const cells = rows[i].getElementsByTagName("td");
+          let found = false;
+
+          for (let j = 0; j < cells.length; j++) {
+            const cell = cells[j];
+            if (cell) {
+              if (cell.innerHTML.toLowerCase().indexOf(filter) > -1) {
+                found = true;
+                break;
+              }
+            }
+          }
+
+          if (found) {
+            rows[i].style.display = "";
+          } else {
+            rows[i].style.display = "none";
+          }
+        }
+      }
+    </script>
   </body>
 </html>

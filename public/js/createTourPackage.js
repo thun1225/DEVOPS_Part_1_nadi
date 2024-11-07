@@ -1,54 +1,83 @@
 document.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("addTourPackage").addEventListener("click", addResource);
-});
-
-const addResource = (event) => {
-    event.preventDefault(); // Prevent the default form submission
-
-    const messageElement = document.getElementById("message");
-    const jsonData = {
+  document
+    .getElementById("addTravelPackage")
+    .addEventListener("click", async event => {
+      event.preventDefault();
+      const tourPackage = {
         host: document.getElementById("host").value,
         location: document.getElementById("location").value,
         packageName: document.getElementById("packageName").value,
         category: document.getElementById("category").value,
         duration: document.getElementById("duration").value,
         phone: document.getElementById("phone").value,
-        email: document.getElementById('email').value,
-        price: document.getElementById('price').value
-    };
+        email: document.getElementById("email").value,
+        price: document.getElementById("price").value
+      };
 
-    // Send data using fetch
-    fetch("/add-tour", {
-        method: "POST",
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(jsonData)
-    })
-    .then(response => response.json())
-    .then(response => {
-        if (!response.message) {
-            messageElement.innerHTML = `Added Resource: ${jsonData.packageName}!`;
-            messageElement.setAttribute("class", "text-success");
+      try {
+        const response = await fetch("http://localhost:5050/add-tour", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(tourPackage)
+        });
 
-            // Clear form fields
-            document.getElementById("host").value = "";
-            document.getElementById("location").value = "";
-            document.getElementById("packageName").value = "";
-            document.getElementById("category").value = "category";
-            document.getElementById("duration").value = "";
-            document.getElementById("phone").value = "";
-            document.getElementById("email").value = "";
-            document.getElementById('price').value = "";
+        const errorMessages = [];
+        const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
-            // Optionally redirect to index page (if desired)
-            // window.location.href = 'index.html';
+        const validationField = (fieldName, fieldValue) => {
+          switch (fieldName) {
+            case "host":
+              if (!fieldValue) errorMessages.push("Host is required.");
+              break;
+            case "location":
+              if (!fieldValue) errorMessages.push("Location is required.");
+              break;
+            case "packageName":
+              if (!fieldValue) errorMessages.push("Package name is required.");
+              break;
+            case "category":
+              if (fieldValue === "category") errorMessages.push("Category is required.");
+              break;
+            case "duration":
+              if (!fieldValue) errorMessages.push("Duration is required.");
+              break;
+            case "phone":
+              if (!fieldValue || isNaN(fieldValue))
+                errorMessages.push("A valid phone number is required.");
+              break;
+            case "email":
+              if (!fieldValue || !emailRegex.test(fieldValue))
+                errorMessages.push("A valid email is required.");
+              break;
+            case "price":
+              if (!fieldValue || isNaN(fieldValue))
+                errorMessages.push("A valid price is required.");
+              break;
+            default:
+              break;
+          }
+        };
+
+        Object.keys(tourPackage).forEach((key) => validationField(key, tourPackage[key]));
+
+        if (errorMessages.length > 0) {
+          document.getElementById("message").innerHTML =
+            "Please fill all the fields";
+          document
+            .getElementById("message")
+            .setAttribute("class", "text-danger");
         } else {
-            messageElement.innerHTML = 'Unable to add resource!';
-            messageElement.setAttribute("class", "text-danger");
+          const result = await response.json();
+          console.log("Data posted successfully:", result);
+          window.location.href = "index.html";
         }
-    })
-    .catch(error => {
-        console.error("Error:", error);
-        messageElement.innerHTML = 'Error occurred while adding resource!';
-        messageElement.setAttribute("class", "text-danger");
+      } catch (error) {
+        console.error("There was an error posting data:", error);
+        document.getElementById("message").innerHTML =
+          "Unable to add resource!";
+        document.getElementById("message").setAttribute("class", "text-danger");
+      }
     });
-}
+});
