@@ -1,5 +1,5 @@
-import express from "express";
-import bodyParser from "body-parser";
+const express = require('express')
+const bodyParser = require('body-parser')
 
 var app = express();
 
@@ -17,17 +17,6 @@ app.post('/add-ticket-booking', createTrainTicketReservation);
 const { addHotel, viewHotels } = require('./utils/HotelUtil')
 app.post('/add-hotel', addHotel);
 app.get('/view-hotels', viewHotels);
-
-
-app.get('/', (req, res) => {
-    res.sendFile(__dirname + "/public/" + startPage);
-})
-server = app.listen(PORT, function () {
-    const address = server.address();
-    const baseUrl = `http://${address.address == "::" ? 'localhost' :
-        address.address}:${address.port}`;
-    console.log(`Demo project at: ${baseUrl}`);
-
 
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/public/" + startPage);
