@@ -1,3 +1,4 @@
+
 var express = require('express');
 var bodyParser = require("body-parser")
 const { addTour, addTourValidation } = require("./utils/localToursUtils");
@@ -9,30 +10,25 @@ const startPage = "index.html";
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static("./public"));
+
 app.get("/", (req, res)=> {
   res.sendFile(__dirname + "/public/" + startPage);
 });
 
 app.post("/add-tour", addTourValidation, addTour);
 
-const server = app.listen(PORT, () => {
-  const address = server.address();
+const { createTrainTicketReservation } = require('./utils/TicketUtil')
+app.post('/add-ticket-booking', createTrainTicketReservation);
 
-  if (!address) {
-    console.log("Server address is not available.");
-    return;
-  }
+const { addHotel, viewHotels } = require('./utils/HotelUtil')
+app.post('/add-hotel', addHotel);
+app.get('/view-hotels', viewHotels);
 
-  let baseUrl;
-
-  if (typeof address === "string") {
-    baseUrl = `http://${address}`;
-  } else {
-    const hostname = address.address === "::" ? "localhost" : address.address;
-    baseUrl = `http://${hostname}:${address.port}`;
-  }
-
-  console.log(`Demo project at: ${baseUrl}`);
-});
+server = app.listen(PORT, function () {
+    const address = server.address();
+    const baseUrl = `http://${address.address == "::" ? 'localhost' :
+        address.address}:${address.port}`;
+    console.log(`Demo project at: ${baseUrl}`);
+})
 
 module.exports = { app, server };
