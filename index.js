@@ -1,7 +1,7 @@
 
 var express = require('express');
 var bodyParser = require("body-parser")
-const { addTour, addTourValidation } = require("./utils/localToursUtils");
+const { addTour, addTourValidation, viewTour } = require("./utils/localToursUtils");
 
 const app = express();
 const PORT = process.env.PORT || 5050;
@@ -16,6 +16,7 @@ app.get("/", (req, res)=> {
 });
 
 app.post("/add-tour", addTourValidation, addTour);
+app.get('view-tour', viewTour)
 
 const { createTrainTicketReservation } = require('./utils/TicketUtil')
 app.post('/add-ticket-booking', createTrainTicketReservation);
