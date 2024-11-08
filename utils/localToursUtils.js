@@ -1,7 +1,11 @@
 const { Tour } = require("../models/localToursModel");
-const fs = require('fs').promises;
+const fs = require("fs").promises;
 //import { Request, Response } from "express";
-const { check, ValidationChain, validationResult } = require("express-validator");
+const {
+  check,
+  ValidationChain,
+  validationResult
+} = require("express-validator");
 
 const readJSON = async filename => {
   try {
@@ -54,7 +58,7 @@ const addTourValidation = [
     .withMessage("Valid email is required.")
     .matches(emailRegex),
 
-  check("price").trim().isNumeric().withMessage("Price must be a number."),
+  check("price").trim().isNumeric().withMessage("Price must be a number.")
 ];
 
 const addTour = async (req, res) => {
@@ -96,4 +100,13 @@ const addTour = async (req, res) => {
   }
 };
 
-module.exports = { readJSON, writeJSON, addTourValidation, addTour};
+const viewTour = async (req, res) => {
+  try {
+    const allTour = await readJSON("utils/tours.json");
+    return res.status(201).json(allTour);
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+};
+
+module.exports = { readJSON, writeJSON, addTourValidation, addTour, viewTour };
