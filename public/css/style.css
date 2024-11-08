@@ -1,0 +1,93 @@
+table-striped-custom tbody tr:nth-of-type(odd) {
+    background-color: #f2f2f2; /* Alternate row color */
+    }
+
+    .card {
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+    
+    .card-img-top {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+    }
+    
+    .card-title {
+        font-size: 1rem;
+        font-weight: bold;
+    }
+    
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+     
+    .navbar {
+        width: 100%;
+        background-color: #3178c6;
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 20px;
+        align-items: center;
+    }
+     
+    span {
+        color:#ffffff
+    }
+     
+    .logo {
+        display: flex;
+        align-items: center;
+        font: white
+    }
+     
+    .logo-circle {
+        width: 40px;
+        height: 40px;
+        background-color: #ffffff;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+     
+    p {
+        padding: 50px;
+        font-family: ariel;
+        font-size: 20px;
+        text-align: center
+    }
+     
+    .feature-button {
+        background-color: #3178c6;
+        /* Primary button color */
+        color: white;
+        padding: 15px 30px;
+        margin: 10px;
+        border: none;
+        border-radius: 15px;
+        /* Rounded corners */
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+     
+    .feature-button:hover {
+        background-color: #4a8abc;
+        /* Darker color on hover */
+    }
+     
+    .button-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 20px;
+    }
