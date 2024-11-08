@@ -96,4 +96,13 @@ const addTour = async (req, res) => {
   }
 };
 
-module.exports = { readJSON, writeJSON, addTourValidation, addTour};
+const viewTour = async (req, res) => {
+  try {
+    const allTour = await readJSON("utils/tours.json");
+    return res.status(201).json(allTour);
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+};
+
+module.exports = { readJSON, writeJSON, addTourValidation, addTour, viewTour};
