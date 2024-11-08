@@ -1,319 +1,256 @@
-
-<!DOCTYPE html>
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Travel booking</title>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script
-src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-<script
-src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-rel="stylesheet">
-<script src="js/ticket.js"></script>
-<link rel="stylesheet" href="css/styles.css">
-</head>
-
-
-<body>
-
-  <div class="start">
-  <p class="text">Book a comfortable train with us today!</p>
-
-  <button type="button" class="btn btn-primary" id="main" data-toggle="modal" data-target="#ticketModal">
-    Book a train
-  </button>
-</div>
-    <div class="container">
-        <div class="card">
-           <img src="images/train1.png" alt="">
-            <p>Sydney to New Zealand</p>
-            <p>7pm to 9pm</p>
-
-            <button type="button" class="btn btn-primary" >
-                View more details
-              </button>
-
-
-        </div>
-        <div class="card">
-            <img src="images/train2.jpg" alt="">
-            <p>Melbourn to Sydney</p>
-            <p>7pm to 9pm</p>
-
-            <button type="button" class="btn btn-primary" >
-              View more details
-            </button>
-        </div>
-        <div class="card">
-            <img src="images/train3.jpeg" alt="">
-            <p>Townsvillie to Brisbane</p>
-            <p>7pm to 9pm</p>
-            
-            <button type="button" class="btn btn-primary" >
-              View more details
-            </button>
-        </div>
-    </div>
-
-
-
-
-  
-</div>
-</div>
-</div>
-
-
-
-
-
-
-
-
-<!-- Modal -->
-<div class="modal fade" id="ticketModal" tabindex="-1" role="dialog" aria-
-labelledby="ticketModalLabel" aria-hidden="true">
-<div class="modal-dialog" role="document">
-<div class="modal-content">
-<div class="modal-header">
-<h5 class="modal-title" id="ticketModalLabel">Create Booking Reservation</h5>
-<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-<span aria-hidden="true">&times;</span>
-</button>
-</div>
-<div class="modal-body">
-<form>
-<div class="form-group">
-
-<label for="name">Full Name</label>
-<input type="text" class="form-control" id="name" placeholder="Enter your name">
-
-</div>
-<div class="form-group">
-
-<label for="email">Email</label>
-<input type="text" class="form-control" id="email" placeholder="@gmail.com">
-
-
-</div>
-
- <div class="form-group">
-        <label for="gender">Gender</label>
-        <div>
-          <input type="radio" id="male" name="gender" value="male" checked>
-          <label for="male">Male</label>
-        </div>
-        <div>
-          <input type="radio" id="female" name="gender" value="female">
-          <label for="female">Female</label>
-        </div>
-      </div>
-       
-
-<div class="form-group">
-
-<label for="phoneNumber">Phone Number</label>
-<input type="text" class="form-control" id="phoneNumber" placeholder="Phone number">
-
-</div>
-
-
-<div class="form-group">
-
-<label for="quantity">Number of tickets you would like to book</label>
-
-<select name="quantity" id="quantity" class="form-control">
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-  </select>
-
-</div>
-
-
-<div class="form-group">
-    
-
-<label for="location">Select the route</label>
-
-<select name="location" id="location" class="form-control">
-    <option value="Perth to Kalgoorlie">Perth to Kalgoorlie</option>
-    <option value="Melbourne to Sydney">Melbourne to Sydney</option>
-    <option value="Townsvillie to Brisbane">Townsvillie to Brisbane </option>
-    <option value="Sydney to Canberra">Sydney to Canberra</option>
-  </select>
-    
-    </div>
-
-
-
-    <div class="form-group">
-
-        <label for="dateOfTravel"> Choose the date of travel</label>
-        <input type="date" class="form-control" id="dateOfTravel" placeholder="Date of Travel">
-            
-    </div>
-
-
-
-    <div class="form-group">
-    
-
-        <label for="time">Select the time</label>
-        
-        <select name="time" id="time" class="form-control">
-            <option value="13:00 - 16:00">13:00 - 16:00</option>
-            <option value="17:00 - 20:00">17:00 - 20:00</option>
-            <option value="21:00 - 0:00">21:00 - 0:00</option>
-            <option value="06:00 - 09:00">06:00 - 09:00</option>
-          </select>
-    </div>
-        
-
-
-
-    <div class="form-group">
-        <label for="cardNumber"> Enter your payment card number</label>
-        <input type="text" class="form-control" id="cardNumber" placeholder="Card number">
-    </div>
-
-    
-
-
-<p align="right" id="message" class=""></p>
-
-
-
-    
-<input type="checkbox" id="termsconditions" name="termsconditions" value="termsconditions">
-<label for="termsconditions">I have read the terms & conditions</label><br>
-
-
-</form>
-
-
-
-
-
-</div>
-
-
-
-
-
-
-
-
-<div class="modal-footer">
-
-
-
-
-<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-
-
-
-<button type="button" class="btn btn-primary" onclick="createTrainTicketReservation()">Confirm booking</button>
-</div>
-</div>
-</div>
-</div>
-
-
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DVOPS - Hotel Management Web App</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta host="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tour Package List</title>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="js/hotel.js"></script>
-    <link rel="stylesheet" href="css/styles.css">
-</head>
-
-<body onload="viewHotels()">
-    <div class="container mt-5">
-        <div class="row justify-content-center">
-            <img src="images/surfer_girl.jpg" alt="Surfer Girl" class="img-fluid">
-        </div>
-
-        <div class="row justify-content-end mt-3">
-            <div class="col-md-2 text-right">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#hotelModal">
-                    Add Hotel
-                </button>
-            </div>
-        </div>
-
-        <div class="row justify-content-center mt-4">
-            <div class="col-md-12">
-                <!-- Removed the <thead> section to eliminate the headers -->
-                <table class="table table-striped table-striped-custom">
-                    <tbody id="tableContent"></tbody>
-                </table>
-            </div>
-        </div>
-
-        <div class="row mt-4" id="hotelGrid"></div>
-    </div>
-
-    <div class="modal fade" id="hotelModal" tabindex="-1" role="dialog" aria-labelledby="hotelModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="hotelModalLabel">Add New Hotel</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="form-group">
-                            <label for="name">Hotel Name</label>
-                            <input type="text" class="form-control" id="name" placeholder="Enter hotel name">
-                        </div>
-                        <div class="form-group">
-                            <label for="location">Location</label>
-                            <input type="text" class="form-control" id="location" placeholder="Enter hotel location">
-                        </div>
-                        <div class="form-group">
-                            <label for="description">Description</label>
-                            <input type="text" class="form-control" id="description" placeholder="Enter short description">
-                        </div>
-                        <div class="form-group">
-                            <label for="owner">Owner</label>
-                            <input type="text" class="form-control" id="owner" placeholder="Enter hotel owner">
-                        </div>
-                        <p align="right" id="message" class=""></p>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" onclick="addHotel()">Add New Hotel</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-</body>
-</html>
-
-
-
-<html>
-  <head>
-    <title>DVOPS - Resource Management Web App</title>
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="js/createTourPackage.js"></script>
+    <script src="js/viewTourPackage.js"></script>
+    <link rel="stylesheet" href="css/styles1.css" />
   </head>
-  <body>
-    Welcome to my Resource Management Web Application. In this application,
-    users will get to manage resources.
-  </body>
+  <body onload="viewTour()">
+    <nav class="navbar">
+      <div class="logo-container">
+        <div class="logo"></div>
+        <span>Our logo</span>
+      </div>
+      <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="#">Contact us</a>
+      </div>
+    </nav>
 
+    <div class="container">
+      <div class="package-card add-package">
+        <div>
+          <h2>Add New Package</h2>
+          <p>To add, click on the plus sign</p>
+        </div>
+        <button
+          type="button"
+          class="add-button"
+          data-toggle="modal"
+          data-target="#resourceModal"
+        ></button>
+      </div>
+
+      <div class="package-card">
+        <h2>All Packages</h2>
+        <p>List of all packages</p>
+        <div class="form-group">
+          <input
+            type="text"
+            id="searchInput"
+            class="form-control"
+            placeholder="Search Packages"
+            oninput="searchPackages()"
+          />
+        </div>
+
+        <table class="package-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Host</th>
+              <th>Location</th>
+              <th>Package Name</th>
+              <th>Category</th>
+              <th>Duration</th>
+              <th>Phone</th>
+              <th>Email</th>
+              <th>Price</th>
+            </tr>
+          </thead>
+          <tbody id="tableContent"></tbody>
+        </table>
+      </div>
+    </div>
+    <div
+      class="modal fade"
+      id="resourceModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="resourceModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="resourceModalLabel">
+              Add New Resource
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="host">Host</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="host"
+                  placeholder="Enter Host"
+                />
+              </div>
+              <div class="form-group">
+                <label for="location">Location</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="location"
+                  placeholder="Enter Location"
+                />
+              </div>
+              <div class="form-group">
+                <label for="packageName">Package Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="packageName"
+                  placeholder="Enter Package Name"
+                />
+              </div>
+              <div class="form-group">
+                <label for="category">Category</label>
+                <select id="category" class="form-control">
+                  <option value="category">Select Category</option>
+                  <option value="Asia">Asia</option>
+                  <option value="Europe">Europe</option>
+                  <option value="Oceania">Oceania</option>
+                  <option value="Africa">Africa</option>
+                  <option value="North America">North America</option>
+                  <option value="South America">South America</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="duration">Duration</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="duration"
+                  placeholder="Enter Duration"
+                />
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="phone"
+                  placeholder="Enter Phone"
+                />
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  placeholder="Enter Email"
+                />
+              </div>
+              <div class="form-group">
+                <label for="price">Price</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="price"
+                  placeholder="Enter Price"
+                />
+              </div>
+              <p align="right" id="message" class=""></p>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              type="button"
+              disabled
+              class="btn btn-primary"
+              id="addTravelPackage"
+            >
+              Add New Tour Package
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const inputIds = [
+        "host",
+        "location",
+        "packageName",
+        "category",
+        "duration",
+        "phone",
+        "email",
+        "price"
+      ];
+      const button = document.getElementById("addTravelPackage");
+
+      const checkInputs = () => {
+        // Check if any input field has a non-empty value
+        const isAnyInputFilled = inputIds.some(
+          (id) => document.getElementById(id).value.trim() !== ""
+        );
+
+        // Enable the button if any input has a value, otherwise disable it
+        button.disabled = !isAnyInputFilled;
+      };
+
+      inputIds.forEach((id) => {
+        const input = document.getElementById(id);
+        input.addEventListener("input", checkInputs);
+      });
+
+      const searchPackages = () =>{
+        const input = document.getElementById("searchInput");
+        const filter = input.value.toLowerCase();
+        const table = document.getElementById("tableContent");
+        const rows = table.getElementsByTagName("tr");
+
+        for (let i = 0; i < rows.length; i++) {
+          const cells = rows[i].getElementsByTagName("td");
+          let found = false;
+
+          for (let j = 0; j < cells.length; j++) {
+            const cell = cells[j];
+            if (cell) {
+              if (cell.innerHTML.toLowerCase().indexOf(filter) > -1) {
+                found = true;
+                break;
+              }
+            }
+          }
+
+          if (found) {
+            rows[i].style.display = "";
+          } else {
+            rows[i].style.display = "none";
+          }
+        }
+      }
+    </script>
+  </body>
 </html>
+
