@@ -1,7 +1,7 @@
 
 var express = require('express');
 var bodyParser = require("body-parser")
-const { addTour, addTourValidation, viewTour } = require("./utils/localToursUtils");
+const { addTour, addTourValidation, viewTour } = require("./utils/LocalToursUtils");
 
 const app = express();
 const PORT = process.env.PORT || 5050;
