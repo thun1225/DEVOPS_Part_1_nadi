@@ -40,15 +40,15 @@
 function addHotel() {
     var response = "";
     var jsonData = {
-        name: document.getElementById("name").value,
-        location: document.getElementById("location").value,
-        description: document.getElementById("description").value,
-        owner: document.getElementById("owner").value
+        name1: document.getElementById("name1").value,
+        location1: document.getElementById("location1").value,
+        description1: document.getElementById("description1").value,
+        owner1: document.getElementById("owner1").value
     };
 
-    if (jsonData.name === "" || jsonData.location === "" || jsonData.description === "" || jsonData.owner === "") {
-        document.getElementById("message").innerHTML = 'All fields are required!';
-        document.getElementById("message").setAttribute("class", "text-danger");
+    if (jsonData.name1 === "" || jsonData.location1 === "" || jsonData.description1 === "" || jsonData.owner1 === "") {
+        document.getElementById("message1").innerHTML = 'All fields are required!';
+        document.getElementById("message1").setAttribute("class", "text-danger");
         return;
     }
 
@@ -58,16 +58,16 @@ function addHotel() {
     request.onload = function () {
         response = JSON.parse(request.responseText);
         if (!response.message) {
-            document.getElementById("message").innerHTML = 'Added Hotel: ' + jsonData.name + '!';
-            document.getElementById("message").setAttribute("class", "text-success");
-            document.getElementById("name").value = "";
-            document.getElementById("location").value = "";
-            document.getElementById("description").value = "";
-            document.getElementById("owner").value = "";
-            viewHotels(); // Refresh the table after adding
+            document.getElementById("message1").innerHTML = 'Added Hotel!';
+            document.getElementById("message1").setAttribute("class", "text-success");
+            document.getElementById("name1").value = "";
+            document.getElementById("location1").value = "";
+            document.getElementById("description1").value = "";
+            document.getElementById("owner1").value = "";
+            viewHotels(); 
         } else {
-            document.getElementById("message").innerHTML = 'Unable to add hotel!';
-            document.getElementById("message").setAttribute("class", "text-danger");
+            document.getElementById("message1").innerHTML = 'Unable to add hotel!';
+            document.getElementById("message1").setAttribute("class", "text-danger");
         }
     };
 

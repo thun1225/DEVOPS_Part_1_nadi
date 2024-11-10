@@ -4,7 +4,6 @@ img{
 }
 
 
-
 .container{
     display: flex;
     gap: 20px;
@@ -47,19 +46,222 @@ button{
     align-items: center; 
 }
 
-
-.text{
-    font-size: 30px;
-    font-weight: bold;
-    padding: 30px;
+.row.mt-3 {
+    justify-content: flex-start; /* Aligns content to the left */
 }
+
+
 
 #main {
     width: 300px;
     height: 50px;
+    margin-left: 0;
     
 }
 
 body{
     padding: 10px;
 }
+
+
+
+
+
+
+table-striped-custom tbody tr:nth-of-type(odd) {
+    background-color: #f2f2f2; /* Alternate row color */
+    }
+
+    .card {
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+    
+    .card-img-top {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+    }
+    
+    .card-title {
+        font-size: 1rem;
+        font-weight: bold;
+    }
+    
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+     
+
+     
+    span {
+        color:#ffffff
+    }
+
+/* .addhotelbutton {
+  height: 100px;
+  background-color: #333;
+
+} */
+
+     
+    .feature-button {
+        background-color: #3178c6;
+        /* Primary button color */
+        color: white;
+        padding: 15px 30px;
+        margin: 10px;
+        border: none;
+        border-radius: 15px;
+        /* Rounded corners */
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+     
+    .feature-button:hover {
+        background-color: #4a8abc;
+        /* Darker color on hover */
+    }
+     
+    .button-container {
+        display: flex;
+        justify-content: left;
+        align-items: left;
+        flex-direction: column;
+        margin-top: 20px;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+    :root {
+        --apple-system: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+    
+    body{
+        background-color: #FCFAFA;
+    }
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+
+    
+    /* Main Content */
+    .container {
+        max-width: 1200px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+    }
+    
+    /* Package Cards */
+    .package-card {
+        background-color: #F0F0F0;
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    .package-card h2 {
+        margin-bottom: 0.5rem;
+        font-size: 1.5rem;
+    }
+    
+    .package-card p {
+        color: #666;
+        margin-bottom: 1rem;
+    }
+    
+    /* Add Package Button */
+    .add-package {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .add-button {
+        background-color: #3178C6;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+        border: none;
+        transition: background-color 0.2s ease-in-out;
+        padding: 0;  /* Remove default button padding */
+        line-height: 1; /* Adjust line height to center the plus */
+        position: relative; /* For perfect centering */
+    }
+    
+    .add-button::after {
+        content: '+';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-family: var(--apple-system);
+        font-weight: 300; /* Making the plus sign lighter */
+        font-size: 32px; /* Slightly larger plus sign */
+    }
+    
+    .add-button:hover {
+        background-color: #2266b5;
+    }
+    
+    .add-button:disabled {
+        background-color: #ccc;  /* Light grey background */
+        color: #666;             /* Darker grey text color */
+        cursor: not-allowed;     /* Shows a 'not-allowed' cursor */
+        opacity: 1;            /* Reduces opacity to visually de-emphasize */
+    }
+    
+    /* Table Styles */
+    .package-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 1rem;
+    }
+    
+    .package-table th,
+    .package-table td {
+        padding: 0.75rem;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+    
+    .package-table th {
+        font-weight: bold;
+        color: #333;
+    }
+    
+    .package-table tr:hover {
+        background-color: #f8f8f8;
+    }

@@ -16,14 +16,14 @@ async function writeJSON(object, filename) {
 }
 async function addHotel(req, res) {
     try {
-        const name = req.body.name;
-        const location = req.body.location;
-        const description = req.body.description;
-        const owner = req.body.owner;
-        if (!owner.includes('@') || !owner.includes('.') || description.length < 6) {
+        const name1 = req.body.name1;
+        const location1 = req.body.location1;
+        const description1 = req.body.description1;
+        const owner1 = req.body.owner1;
+        if (!owner1.includes('@') || !owner1.includes('.') || description1.length < 6) {
             return res.status(500).json({ message: 'Validation error' });
         } else {
-            const newHotel = new Hotel(name, location, description, owner);
+            const newHotel = new Hotel(name1, location1, description1, owner1);
             const updatedHotels = await writeJSON(newHotel,
                 'utils/hotels.json');
             return res.status(201).json(updatedHotels);

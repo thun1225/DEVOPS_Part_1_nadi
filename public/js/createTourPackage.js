@@ -5,12 +5,12 @@ document.addEventListener("DOMContentLoaded", () => {
       event.preventDefault();
       const tourPackage = {
         host: document.getElementById("host").value,
-        location: document.getElementById("location").value,
+        location2: document.getElementById("location2").value,
         packageName: document.getElementById("packageName").value,
         category: document.getElementById("category").value,
         duration: document.getElementById("duration").value,
         phone: document.getElementById("phone").value,
-        email: document.getElementById("email").value,
+        email2: document.getElementById("email2").value,
         price: document.getElementById("price").value
       };
 
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
             case "host":
               if (!fieldValue) errorMessages.push("Host is required.");
               break;
-            case "location":
+            case "location2":
               if (!fieldValue) errorMessages.push("Location is required.");
               break;
             case "packageName":
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
               if (!fieldValue || isNaN(fieldValue))
                 errorMessages.push("A valid phone number is required.");
               break;
-            case "email":
+            case "email2":
               if (!fieldValue || !emailRegex.test(fieldValue))
                 errorMessages.push("A valid email is required.");
               break;

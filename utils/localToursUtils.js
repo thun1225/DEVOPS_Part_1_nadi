@@ -32,7 +32,7 @@ const mobileRegex = /^\+?(\d{1,3})?[-. (]?(\d{1,4})[-. )]?(\d{1,4})[-. ]?(\d{1,9
 const addTourValidation = [
   check("host").trim().notEmpty().withMessage("Host is required."),
 
-  check("location").trim().notEmpty().withMessage("Location is required."),
+  check("location2").trim().notEmpty().withMessage("Location is required."),
 
   check("packageName")
     .trim()
@@ -48,7 +48,7 @@ const addTourValidation = [
     .matches(mobileRegex)
     .withMessage("Valid phone number is required."),
 
-  check("email")
+  check("email2")
     .trim()
     .isEmail()
     .withMessage("Valid email is required.")
@@ -66,23 +66,23 @@ const addTour = async (req, res) => {
   try {
     const {
       host,
-      location,
+      location2,
       packageName,
       category,
       duration,
       phone,
-      email,
+      email2,
       price
     } = req.body;
 
     const newTour = new Tour(
       host,
-      location,
+      location2,
       packageName,
       category,
       duration,
       phone,
-      email,
+      email2,
       price
     );
 

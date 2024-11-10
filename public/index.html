@@ -18,7 +18,7 @@ rel="stylesheet">
 <body>
 
   <div class="start">
-  <p class="text">Book a comfortable train with us today!</p>
+
 
   <button type="button" class="btn btn-primary" id="main" data-toggle="modal" data-target="#ticketModal">
     Book a train
@@ -239,21 +239,34 @@ labelledby="ticketModalLabel" aria-hidden="true">
 
 <body onload="viewHotels()">
     <div class="container mt-5">
-        <div class="row justify-content-center">
-            <img src="images/surfer_girl.jpg" alt="Surfer Girl" class="img-fluid">
-        </div>
 
-        <div class="row justify-content-end mt-3">
-            <div class="col-md-2 text-right">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#hotelModal">
-                    Add Hotel
-                </button>
+
+        <!-- <div class="row justify-content-end mt-3">
+            <div class="col-md-2 text-left">
+              <button type="button" class="btn btn-primary" id="main" data-toggle="modal" data-target="#hotelModal">
+                Add a hotel
+              </button>
             </div>
-        </div>
+        </div> -->
+
+        <!-- <div class="addhotelbutton">
+          <button type="button" class="btn btn-primary" id="main" data-toggle="modal" data-target="#hotelModal">
+            Add a hotel
+          </button>
+        </div> -->
+
+        <div class="row mt-3">
+          <div class="addhotelbutton">
+              <button type="button" class="btn btn-primary addhotelbutton" id="main" data-toggle="modal" data-target="#hotelModal">
+                  Add a hotel
+              </button>
+          </div>
+      </div>
+      
 
         <div class="row justify-content-center mt-4">
             <div class="col-md-12">
-                <!-- Removed the <thead> section to eliminate the headers -->
+
                 <table class="table table-striped table-striped-custom">
                     <tbody id="tableContent"></tbody>
                 </table>
@@ -275,22 +288,22 @@ labelledby="ticketModalLabel" aria-hidden="true">
                 <div class="modal-body">
                     <form>
                         <div class="form-group">
-                            <label for="name">Hotel Name</label>
-                            <input type="text" class="form-control" id="name" placeholder="Enter hotel name">
+                            <label for="name1">Hotel Name</label>
+                            <input type="text" class="form-control" id="name1" placeholder="Enter hotel name">
                         </div>
                         <div class="form-group">
-                            <label for="location">Location</label>
-                            <input type="text" class="form-control" id="location" placeholder="Enter hotel location">
+                            <label for="location1">Location</label>
+                            <input type="text" class="form-control" id="location1" placeholder="Enter hotel location">
                         </div>
                         <div class="form-group">
-                            <label for="description">Description</label>
-                            <input type="text" class="form-control" id="description" placeholder="Enter short description">
+                            <label for="description1">Description</label>
+                            <input type="text" class="form-control" id="description1" placeholder="Enter short description">
                         </div>
                         <div class="form-group">
-                            <label for="owner">Owner</label>
-                            <input type="text" class="form-control" id="owner" placeholder="Enter hotel owner">
+                            <label for="owner1">Owner</label>
+                            <input type="text" class="form-control" id="owner1" placeholder="Enter hotel owner">
                         </div>
-                        <p align="right" id="message" class=""></p>
+                        <p align="right" id="message1" class=""></p>
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -319,17 +332,15 @@ labelledby="ticketModalLabel" aria-hidden="true">
     />
     <script src="js/createTourPackage.js"></script>
     <script src="js/viewTourPackage.js"></script>
-    <link rel="stylesheet" href="css/styles1.css" />
+    <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body onload="viewTour()">
     <nav class="navbar">
       <div class="logo-container">
         <div class="logo"></div>
-        <span>Our logo</span>
+        <span></span>
       </div>
       <div class="nav-links">
-        <a href="#">Home</a>
-        <a href="#">Contact us</a>
       </div>
     </nav>
 
@@ -413,11 +424,11 @@ labelledby="ticketModalLabel" aria-hidden="true">
                 />
               </div>
               <div class="form-group">
-                <label for="location">Location</label>
+                <label for="location2">Location</label>
                 <input
                   type="text"
                   class="form-control"
-                  id="location"
+                  id="location2"
                   placeholder="Enter Location"
                 />
               </div>
@@ -461,11 +472,11 @@ labelledby="ticketModalLabel" aria-hidden="true">
                 />
               </div>
               <div class="form-group">
-                <label for="email">Email</label>
+                <label for="email2">Email</label>
                 <input
                   type="email"
                   class="form-control"
-                  id="email"
+                  id="email2"
                   placeholder="Enter Email"
                 />
               </div>
@@ -504,12 +515,12 @@ labelledby="ticketModalLabel" aria-hidden="true">
     <script>
       const inputIds = [
         "host",
-        "location",
+        "location2",
         "packageName",
         "category",
         "duration",
         "phone",
-        "email",
+        "email2",
         "price"
       ];
       const button = document.getElementById("addTravelPackage");
@@ -562,11 +573,8 @@ labelledby="ticketModalLabel" aria-hidden="true">
 
 <html>
   <head>
-    <title>DVOPS - Resource Management Web App</title>
+    <title></title>
   </head>
-  <body>
-    Welcome to my Resource Management Web Application. In this application,
-    users will get to manage resources.
-  </body>
+
 
 </html>
