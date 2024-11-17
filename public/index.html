@@ -317,6 +317,8 @@ labelledby="ticketModalLabel" aria-hidden="true">
 </body>
 </html>
 
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -335,15 +337,6 @@ labelledby="ticketModalLabel" aria-hidden="true">
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body onload="viewTour()">
-    <nav class="navbar">
-      <div class="logo-container">
-        <div class="logo"></div>
-        <span></span>
-      </div>
-      <div class="nav-links">
-      </div>
-    </nav>
-
     <div class="container">
       <div class="package-card add-package">
         <div>
@@ -424,12 +417,12 @@ labelledby="ticketModalLabel" aria-hidden="true">
                 />
               </div>
               <div class="form-group">
-                <label for="location2">Location</label>
+                <label for="officeLocation"> Office Location</label>
                 <input
                   type="text"
                   class="form-control"
-                  id="location2"
-                  placeholder="Enter Location"
+                  id="officeLocation"
+                  placeholder="Enter Office Location"
                 />
               </div>
               <div class="form-group">
@@ -472,11 +465,11 @@ labelledby="ticketModalLabel" aria-hidden="true">
                 />
               </div>
               <div class="form-group">
-                <label for="email2">Email</label>
+                <label for="email">Email</label>
                 <input
                   type="email"
                   class="form-control"
-                  id="email2"
+                  id="emailAddress"
                   placeholder="Enter Email"
                 />
               </div>
@@ -489,8 +482,8 @@ labelledby="ticketModalLabel" aria-hidden="true">
                   placeholder="Enter Price"
                 />
               </div>
-              <p align="right" id="message" class=""></p>
             </form>
+            <span align="right" id="error-message" class="text-danger"></span>
           </div>
           <div class="modal-footer">
             <button
@@ -515,12 +508,12 @@ labelledby="ticketModalLabel" aria-hidden="true">
     <script>
       const inputIds = [
         "host",
-        "location2",
+        "location",
         "packageName",
         "category",
         "duration",
         "phone",
-        "email2",
+        "email",
         "price"
       ];
       const button = document.getElementById("addTravelPackage");
@@ -569,12 +562,4 @@ labelledby="ticketModalLabel" aria-hidden="true">
       }
     </script>
   </body>
-</html>
-
-<html>
-  <head>
-    <title></title>
-  </head>
-
-
 </html>

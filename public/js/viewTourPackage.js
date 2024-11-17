@@ -1,4 +1,5 @@
 const viewTour = () => {
+    console.log("viewTour function called");  // Check if the function is being invoked
     fetch('/view-tour', {
         method: 'GET',
         headers: {
@@ -11,14 +12,14 @@ const viewTour = () => {
         }
         return response.json();
     })
-    .then(responseData  => {
+    .then(responseData => {
         let html = '';
         responseData.forEach((tour, index) => {
             html += `
                 <tr>
                     <td>${index + 1}</td>
                     <td>${tour.host}</td>
-                    <td>${tour.location}</td>
+                    <td>${tour.officeLocation}</td>
                     <td>${tour.packageName}</td>
                     <td>${tour.category}</td>
                     <td>${tour.duration}</td>
@@ -30,4 +31,7 @@ const viewTour = () => {
         });
         document.getElementById('tableContent').innerHTML = html;
     })
-}
+    .catch(error => {
+        console.error('Error fetching tour data:', error);
+    });
+};

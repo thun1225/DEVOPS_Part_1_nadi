@@ -1,24 +1,38 @@
+// Define an enumeration for tour categories
+const Continent = Object.freeze({
+  Asia: "Asia",
+  Oceania: "Oceania",
+  Europe: "Europe",
+  Africa: "Africa",
+  NorthAmerica: "North America",
+  SouthAmerica: "South America",
+});
+
 class Tour {
   constructor(
     host,
-    location,
+    officeLocation,
     packageName,
     category,
     duration,
     phone,
-    email,
+    emailAddress,
     price,
-    //image
+    // image
   ) {
+    if (!Object.values(Continent).includes(category)) {
+      throw new Error(`Invalid category. Allowed values are: ${Object.values(Continent).join(", ")}`);
+    }
+
     this.host = host;
-    this.location = location;
+    this.officeLocation = officeLocation;
     this.packageName = packageName;
     this.category = category;
     this.duration = duration;
     this.phone = phone;
-    this.email = email;
+    this.emailAddress = emailAddress;
     this.price = price;
-    //this.image = image;
+    // this.image = image;
     this.id = this.generateId();
   }
 
@@ -29,4 +43,5 @@ class Tour {
   }
 }
 
-module.exports = { Tour };
+// Export the Tour class and Continent
+module.exports = { Tour, Continent };

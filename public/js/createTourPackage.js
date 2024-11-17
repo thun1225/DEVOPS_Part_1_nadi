@@ -3,16 +3,74 @@ document.addEventListener("DOMContentLoaded", () => {
     .getElementById("addTravelPackage")
     .addEventListener("click", async event => {
       event.preventDefault();
+
+      // Collecting form values
       const tourPackage = {
         host: document.getElementById("host").value,
-        location2: document.getElementById("location2").value,
+        officeLocation: document.getElementById("officeLocation").value,
         packageName: document.getElementById("packageName").value,
         category: document.getElementById("category").value,
         duration: document.getElementById("duration").value,
         phone: document.getElementById("phone").value,
-        email2: document.getElementById("email2").value,
+        emailAddress: document.getElementById("emailAddress").value,
         price: document.getElementById("price").value
       };
+
+      // Validation
+      let isValid = true;
+      let errorMessage = "";
+
+      switch (true) {
+        case !tourPackage.host:
+          isValid = false;
+          errorMessage += "Host is required. ";
+          break;
+        case !tourPackage.officeLocation:
+          isValid = false;
+          errorMessage += "Office Location is required. ";
+          break;
+        case !tourPackage.packageName:
+          isValid = false;
+          errorMessage += "Package Name is required. ";
+          break;
+        case (tourPackage.category === "category" ||!tourPackage.category):
+          isValid = false;
+          errorMessage += "Category is required. ";
+          break;
+        case !tourPackage.duration:
+          isValid = false;
+          errorMessage += "Duration is required. ";
+          break;
+        case !tourPackage.phone:
+          isValid = false;
+          errorMessage += "Phone is required. ";
+          break;
+        case !tourPackage.emailAddress:
+          isValid = false;
+          errorMessage += "Email Address is required. ";
+          break;
+        case !/\S+@\S+\.\S+/.test(tourPackage.emailAddress): // Check if email format is valid
+          isValid = false;
+          errorMessage += "Email Address is not valid. ";
+          break;
+        case !tourPackage.price ||
+          isNaN(tourPackage.price) ||
+          tourPackage.price <= 0:
+          isValid = false;
+          errorMessage += "Price must be a positive number. ";
+          break;
+        default:
+          break;
+      }
+
+      if (!isValid) {
+        // If validation fails, show error message
+        document.getElementById("error-message").innerText = errorMessage;
+        document
+          .getElementById("error-message")
+          .setAttribute("class", "text-danger");
+        return; // Stop form submission
+      }
 
       try {
         const response = await fetch("http://localhost:5050/add-tour", {
@@ -23,61 +81,16 @@ document.addEventListener("DOMContentLoaded", () => {
           body: JSON.stringify(tourPackage)
         });
 
-        const errorMessages = [];
-        const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
-
-        const validationField = (fieldName, fieldValue) => {
-          switch (fieldName) {
-            case "host":
-              if (!fieldValue) errorMessages.push("Host is required.");
-              break;
-            case "location2":
-              if (!fieldValue) errorMessages.push("Location is required.");
-              break;
-            case "packageName":
-              if (!fieldValue) errorMessages.push("Package name is required.");
-              break;
-            case "category":
-              if (fieldValue === "category") errorMessages.push("Category is required.");
-              break;
-            case "duration":
-              if (!fieldValue) errorMessages.push("Duration is required.");
-              break;
-            case "phone":
-              if (!fieldValue || isNaN(fieldValue))
-                errorMessages.push("A valid phone number is required.");
-              break;
-            case "email2":
-              if (!fieldValue || !emailRegex.test(fieldValue))
-                errorMessages.push("A valid email is required.");
-              break;
-            case "price":
-              if (!fieldValue || isNaN(fieldValue))
-                errorMessages.push("A valid price is required.");
-              break;
-            default:
-              break;
-          }
-        };
-
-        Object.keys(tourPackage).forEach((key) => validationField(key, tourPackage[key]));
-
-        if (errorMessages.length > 0) {
-          document.getElementById("message").innerHTML =
-            "Please fill all the fields";
-          document
-            .getElementById("message")
-            .setAttribute("class", "text-danger");
-        } else {
-          const result = await response.json();
-          console.log("Data posted successfully:", result);
-          window.location.href = "index.html";
-        }
+        const result = await response.json();
+        console.log("Data posted successfully:", result);
+        window.location.href = "index.html"; // Redirect after successful posting
       } catch (error) {
         console.error("There was an error posting data:", error);
-        document.getElementById("message").innerHTML =
+        document.getElementById("error-message").innerText =
           "Unable to add resource!";
-        document.getElementById("message").setAttribute("class", "text-danger");
+        document
+          .getElementById("error-message")
+          .setAttribute("class", "text-danger");
       }
     });
 });

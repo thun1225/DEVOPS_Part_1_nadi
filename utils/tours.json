@@ -1,57 +1,46 @@
 [
   {
-    "host": "Chen li",
-    "location": "Shanghai, China",
-    "packageName": "Shanghai: Shanghai & Zhujiajiao Tour",
+    "host": "Gavin",
+    "officeLocation": "Singapore",
+    "packageName": "Singapore: Gardens by the Bay Guided Tour/Photography",
     "category": "Asia",
-    "duration": "7.30am to 6pm",
-    "phone": "34758859344553",
-    "email": "chenLi@mail.com",
-    "price": "790.40",
-    "id": "1730184880137223"
+    "duration": "5D4N",
+    "phone": "7446584448",
+    "emailAddress": "gavyeet01@mail.com",
+    "price": "799.90",
+    "id": "1731815873666653"
   },
   {
-    "host": "qwerqe",
-    "location": "efadf",
-    "packageName": "adfa",
+    "host": "Yannis",
+    "officeLocation": "Hiroshima, Japan",
+    "packageName": "Hiroshima: Historical Walking Tour - Why A-Bomb was Dropped",
     "category": "Asia",
-    "duration": "dfasd",
-    "phone": "3423",
-    "email": "b@gmail.com",
-    "price": "342",
-    "id": "1731224661113346"
+    "duration": "9D7N",
+    "phone": "834637724824",
+    "emailAddress": "yannis@mail.com",
+    "price": "2344.90",
+    "id": "1731815964516563"
   },
   {
-    "host": "asdfa",
-    "location": "sdfasd",
-    "packageName": "fasdfas",
-    "category": "Europe",
-    "duration": "sdfad",
-    "phone": "34534",
-    "email": "dfasf@gmail.com",
-    "price": "2342",
-    "id": "1731225177095530"
+    "host": "Jumana",
+    "officeLocation": "Sabah, Malaysia",
+    "packageName": "Sabah: Kota Kinabalu Park and Hot Spring Day Trip",
+    "category": "Asia",
+    "duration": "6D5N",
+    "phone": "38464783",
+    "emailAddress": "jumana@email.com",
+    "price": "500",
+    "id": "1731816420076688"
   },
   {
-    "host": "TESTTTTTTT",
-    "location": "ADFAD",
-    "packageName": "ADSFASDFASDF",
+    "host": "Jerlyn",
+    "officeLocation": "Kumamoto, Japan",
+    "packageName": "Kumamoto: Princess Kaguya's Glowing Garden in Sakuramachi",
     "category": "Asia",
-    "duration": "RTERTH",
-    "phone": "1353523",
-    "email": "U@gmail.com",
-    "price": "342",
-    "id": "1731225207448625"
-  },
-  {
-    "host": "TESTTTTTTTTTTTTTTTTTTTTTTTTT",
-    "location": "ADFFADSF",
-    "packageName": "DFADSFASDF",
-    "category": "Asia",
-    "duration": "ADFASD",
-    "phone": "23423452",
-    "email": "FASDFASD@GMAIL.COM",
-    "price": "23452",
-    "id": "1731225572624223"
+    "duration": "9D7N",
+    "phone": "94648364",
+    "emailAddress": "jerlyn@mail.com",
+    "price": "123",
+    "id": "1731816621731714"
   }
 ]
