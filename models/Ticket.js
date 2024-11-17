@@ -1,9 +1,6 @@
 //this is my train ticket model
-
 class Ticket {
     constructor(name,gender,email,phoneNumber,quantity,location,dateOfTravel, time, cardNumber,termsconditions) {
-
-
     this.name = name;
     this.gender = gender
     this.email = email;
@@ -15,9 +12,6 @@ class Ticket {
     this.cardNumber = cardNumber
     this.termsconditions = termsconditions
 
-
-
-    
     const timestamp = new Date().getTime();
     const random = Math.floor(Math.random() * 1000);
     this.id = timestamp + "" + random.toString().padStart(3, '0');

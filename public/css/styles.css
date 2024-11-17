@@ -259,3 +259,7 @@ table-striped-custom tbody tr:nth-of-type(odd) {
         color: red;
         font-weight: bold; /* Optional, to make the message stand out */
       }
+
+      .text-success{
+        color: green
+      }

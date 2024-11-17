@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
           isValid = false;
           errorMessage += "Package Name is required. ";
           break;
-        case (tourPackage.category === "category" ||!tourPackage.category):
+        case tourPackage.category === "category" || !tourPackage.category:
           isValid = false;
           errorMessage += "Category is required. ";
           break;
@@ -83,7 +83,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const result = await response.json();
         console.log("Data posted successfully:", result);
-        window.location.href = "index.html"; // Redirect after successful posting
+        document.getElementById("success-message").innerText =
+          "Tour package added successfully";
+        document
+          .getElementById("success-message")
+          .setAttribute("class", "text-success");
+        setTimeout(() => {
+          window.location.href = "index.html"; // Redirect after 2 seconds
+        }, 2000); // Redirect after successful posting
       } catch (error) {
         console.error("There was an error posting data:", error);
         document.getElementById("error-message").innerText =

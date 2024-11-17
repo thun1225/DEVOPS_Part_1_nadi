@@ -42,5 +42,38 @@
     "emailAddress": "jerlyn@mail.com",
     "price": "123",
     "id": "1731816621731714"
+  },
+  {
+    "host": "Hui Shan",
+    "officeLocation": "Malacca, Malaysia",
+    "packageName": "Malacca: Night Tour with River Cruise & Trishaw Ride",
+    "category": "Asia",
+    "duration": "6D5N",
+    "phone": "547584534675",
+    "emailAddress": "huiShan@email.com",
+    "price": "123",
+    "id": "1731825456210436"
+  },
+  {
+    "host": "Winter",
+    "officeLocation": "Vancouver, Canada",
+    "packageName": "Vancouver: Sea to Sky Gondola and Whistler Day Trip",
+    "category": "North America",
+    "duration": "10D8N",
+    "phone": "547584534675",
+    "emailAddress": "winter@mail.com",
+    "price": "3000",
+    "id": "1731825880357204"
+  },
+  {
+    "host": "Alicia",
+    "officeLocation": "Osaka, Japan",
+    "packageName": "Osaka: Maki-e Painting and Matcha Experience",
+    "category": "Asia",
+    "duration": "9D7N",
+    "phone": "283927328",
+    "emailAddress": "alicia@mail.com",
+    "price": "2999",
+    "id": "1731826032466350"
   }
 ]
