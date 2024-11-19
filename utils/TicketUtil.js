@@ -23,8 +23,6 @@ async function writeJSON(object, filename) {
 }
 async function createTrainTicketReservation(req, res) {
   try {
-   
-
     const name = req.body.name;
     const gender = req.body.gender;
     const email = req.body.email;
@@ -36,55 +34,74 @@ async function createTrainTicketReservation(req, res) {
     const cardNumber = req.body.cardNumber;
     const termsconditions = req.body.termsconditions;
 
-
-
-// add validations to the input feilds
-
+    // add validations to the input feilds
 
     const Nameregex = /^[A-Za-z\s'-]+$/;
     const Numberregex = /^[0-9]+$/;
-    const Emailregex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+    const Emailregex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const GenderOptions = ["male", "female"]
 
-
-    if(
-        !Nameregex.test(name)
-    ){
-        return res.status(500).json({ message: "Name should only contain alphabets" });
+    if (
+      !name ||
+      !gender ||
+      !email ||
+      !phoneNumber ||
+      !quantity ||
+      !location ||
+      !dateOfTravel ||
+      !time ||
+      !cardNumber ||
+      !termsconditions
+    ) {
+      return res.status(400).send({ message: "Please fill all the fields" });
     }
 
-    if(
-        !Emailregex.test(email)
-    ){
-        return res.status(500).json({ message: "Please enter a valid email" });
+    if (!Nameregex.test(name)) {
+      return res
+        .status(400)
+        .json({ message: "Name should only contain alphabets" });
     }
 
-    if(
-        !Numberregex.test(phoneNumber)
-    ){
-        return res.status(500).json({ message: "Please enter a valid phone number" });
+    if (!Emailregex.test(email)) {
+      return res.status(400).json({ message: "Please enter a valid email" });
     }
 
-    if(
-        !Numberregex.test(cardNumber)
-    ){
-        return res.status(500).json({ message: "Please enter a valid bank card number" });
+    if (!Numberregex.test(phoneNumber)) {
+      return res
+        .status(400)
+        .json({ message: "Please enter a valid phone number" });
     }
-    else{
-        const newTicket = new Ticket(name,gender,email,phoneNumber,quantity,location,dateOfTravel, time, cardNumber,termsconditions);
-      const updatedTicket = await writeJSON(
-        newTicket,
-        "utils/tickets.json"
+
+    if (!GenderOptions.includes(gender.toLowerCase())) {
+      return res.status(400).json({
+        message: "Gender must be 'male' or 'female'.",
+      });
+    }
+
+    if (!Numberregex.test(cardNumber)) {
+      return res
+        .status(400)
+        .json({ message: "Please enter a valid bank card number" });
+    } else {
+      const newTicket = new Ticket(
+        name,
+        gender,
+        email,
+        phoneNumber,
+        quantity,
+        location,
+        dateOfTravel,
+        time,
+        cardNumber,
+        termsconditions
       );
+      const updatedTicket = await writeJSON(newTicket, "utils/tickets.json");
       return res.status(201).json(updatedTicket);
     }
-
-} catch (error) {
-    return res.status(500).json({ message: error.message }),
-    alert(message)
+  } catch (error) {
+    return res.status(500).json({ message: error.message }), alert(message);
   }
 }
-
-
 
 module.exports = {
   readJSON,

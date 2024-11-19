@@ -288,22 +288,22 @@ labelledby="ticketModalLabel" aria-hidden="true">
                 <div class="modal-body">
                     <form>
                         <div class="form-group">
-                            <label for="name1">Hotel Name</label>
-                            <input type="text" class="form-control" id="name1" placeholder="Enter hotel name">
+                            <label for="hotelName">Hotel Name</label>
+                            <input type="text" class="form-control" id="hotelName" placeholder="Enter hotel name">
                         </div>
                         <div class="form-group">
-                            <label for="location1">Location</label>
-                            <input type="text" class="form-control" id="location1" placeholder="Enter hotel location">
+                            <label for="hotelLocation">Location</label>
+                            <input type="text" class="form-control" id="hotelLocation" placeholder="Enter hotel location">
                         </div>
                         <div class="form-group">
-                            <label for="description1">Description</label>
-                            <input type="text" class="form-control" id="description1" placeholder="Enter short description">
+                            <label for="hotelDescription">Description</label>
+                            <input type="text" class="form-control" id="hotelDescription" placeholder="Enter short description">
                         </div>
                         <div class="form-group">
-                            <label for="owner1">Owner</label>
-                            <input type="text" class="form-control" id="owner1" placeholder="Enter hotel owner">
+                            <label for="hotelOwner">Owner</label>
+                            <input type="text" class="form-control" id="hotelOwner" placeholder="Enter hotel owner">
                         </div>
-                        <p align="right" id="message1" class=""></p>
+                        <p align="right" id="errorMessage" class=""></p>
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -316,6 +316,8 @@ labelledby="ticketModalLabel" aria-hidden="true">
 
 </body>
 </html>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -335,15 +337,6 @@ labelledby="ticketModalLabel" aria-hidden="true">
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body onload="viewTour()">
-    <nav class="navbar">
-      <div class="logo-container">
-        <div class="logo"></div>
-        <span></span>
-      </div>
-      <div class="nav-links">
-      </div>
-    </nav>
-
     <div class="container">
       <div class="package-card add-package">
         <div>
@@ -424,12 +417,12 @@ labelledby="ticketModalLabel" aria-hidden="true">
                 />
               </div>
               <div class="form-group">
-                <label for="location2">Location</label>
+                <label for="officeLocation"> Office Location</label>
                 <input
                   type="text"
                   class="form-control"
-                  id="location2"
-                  placeholder="Enter Location"
+                  id="officeLocation"
+                  placeholder="Enter Office Location"
                 />
               </div>
               <div class="form-group">
@@ -472,11 +465,11 @@ labelledby="ticketModalLabel" aria-hidden="true">
                 />
               </div>
               <div class="form-group">
-                <label for="email2">Email</label>
+                <label for="email">Email</label>
                 <input
                   type="email"
                   class="form-control"
-                  id="email2"
+                  id="emailAddress"
                   placeholder="Enter Email"
                 />
               </div>
@@ -489,8 +482,9 @@ labelledby="ticketModalLabel" aria-hidden="true">
                   placeholder="Enter Price"
                 />
               </div>
-              <p align="right" id="message" class=""></p>
             </form>
+            <span align="right" id="error-message" class="text-danger"></span>
+            <span align="right" id="success-message" class="text-success"></span>
           </div>
           <div class="modal-footer">
             <button
@@ -515,12 +509,12 @@ labelledby="ticketModalLabel" aria-hidden="true">
     <script>
       const inputIds = [
         "host",
-        "location2",
+        "location",
         "packageName",
         "category",
         "duration",
         "phone",
-        "email2",
+        "email",
         "price"
       ];
       const button = document.getElementById("addTravelPackage");
@@ -569,12 +563,4 @@ labelledby="ticketModalLabel" aria-hidden="true">
       }
     </script>
   </body>
-</html>
-
-<html>
-  <head>
-    <title></title>
-  </head>
-
-
 </html>

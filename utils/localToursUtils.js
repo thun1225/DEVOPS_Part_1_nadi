@@ -1,9 +1,11 @@
 const { Tour } = require("../models/localToursModel");
-const fs = require('fs').promises;
-//import { Request, Response } from "express";
-const { check, ValidationChain, validationResult } = require("express-validator");
+const fs = require("fs").promises;
+const {
+  check,
+  validationResult
+} = require("express-validator");
 
-const readJSON = async filename => {
+const readJSONData = async filename => {
   try {
     const data = await fs.readFile(filename, "utf8");
     return JSON.parse(data);
@@ -13,9 +15,9 @@ const readJSON = async filename => {
   }
 };
 
-const writeJSON = async (object, filename) => {
+const writeJSONData = async (object, filename) => {
   try {
-    const allObjects = await readJSON(filename);
+    const allObjects = await readJSONData(filename);
     allObjects.push(object);
     await fs.writeFile(filename, JSON.stringify(allObjects, null, 2), "utf8");
     return allObjects;
@@ -25,14 +27,14 @@ const writeJSON = async (object, filename) => {
   }
 };
 
-const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const emailAddressRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const mobileRegex = /^\+?(\d{1,3})?[-. (]?(\d{1,4})[-. )]?(\d{1,4})[-. ]?(\d{1,9})$/;
 
 // Validation rules for addTour
 const addTourValidation = [
   check("host").trim().notEmpty().withMessage("Host is required."),
 
-  check("location2").trim().notEmpty().withMessage("Location is required."),
+  check("officeLocation").trim().notEmpty().withMessage("Office Location is required."),
 
   check("packageName")
     .trim()
@@ -48,13 +50,13 @@ const addTourValidation = [
     .matches(mobileRegex)
     .withMessage("Valid phone number is required."),
 
-  check("email2")
+  check("emailAddress")
     .trim()
     .isEmail()
-    .withMessage("Valid email is required.")
-    .matches(emailRegex),
+    .withMessage("Valid email Address is required.")
+    .matches(emailAddressRegex),
 
-  check("price").trim().isNumeric().withMessage("Price must be a number."),
+  check("price").trim().isNumeric().withMessage("Price must be a number.")
 ];
 
 const addTour = async (req, res) => {
@@ -66,27 +68,27 @@ const addTour = async (req, res) => {
   try {
     const {
       host,
-      location2,
+      officeLocation,
       packageName,
       category,
       duration,
       phone,
-      email2,
+      emailAddress,
       price
     } = req.body;
 
     const newTour = new Tour(
       host,
-      location2,
+      officeLocation,
       packageName,
       category,
       duration,
       phone,
-      email2,
+      emailAddress,
       price
     );
 
-    const result = await writeJSON(newTour, "utils/tours.json");
+    const result = await writeJSONData(newTour, "utils/tours.json");
     return res.status(201).json(result);
   } catch (error) {
     console.error("Error adding tour:", error);
@@ -98,11 +100,11 @@ const addTour = async (req, res) => {
 
 const viewTour = async (req, res) => {
   try {
-    const allTour = await readJSON("utils/tours.json");
+    const allTour = await readJSONData("utils/tours.json");
     return res.status(201).json(allTour);
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }
 };
 
-module.exports = { readJSON, writeJSON, addTourValidation, addTour, viewTour};
+module.exports = { readJSONData, writeJSONData, addTourValidation, addTour, viewTour };

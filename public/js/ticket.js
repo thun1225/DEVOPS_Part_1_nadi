@@ -34,6 +34,13 @@ function createTrainTicketReservation() {
     return;
   }
 
+  if(!/\S+@\S+\.\S+/.test(jsonData.email)){
+    alert("Invalid email address");
+    document.getElementById("message").innerHTML = "Invalid email address!";
+    document.getElementById("message").setAttribute("class", "text-danger");
+    return;
+  }
+
   var request = new XMLHttpRequest();
   request.open("POST", "/add-ticket-booking", true);
   request.setRequestHeader("Content-Type", "application/json");
