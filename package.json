@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "backend-test": "nyc --nycrc-path .nycrc-backend mocha",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -12,13 +11,9 @@
   "description": "",
   "dependencies": {
     "body-parser": "^1.20.3",
-    "chai": "^4.3.4",
-    "chai-http": "^4.3.0",
     "cors": "^2.8.5",
     "express": "^4.21.1",
     "express-validator": "^7.2.0",
-    "fs": "^0.0.1-security",
-    "mocha": "^10.8.2",
-    "nyc": "^17.1.0"
+    "fs": "^0.0.1-security"
   }
 }
