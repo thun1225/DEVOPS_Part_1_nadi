@@ -87,24 +87,21 @@ const addTour = async (req, res) => {
       emailAddress,
       price
     );
-    if (host === 'fuck') {
-      throw new Error ('Simulated server error')
-    }
+
     const result = await writeJSONData(newTour, "utils/tours.json");
     return res.status(201).json(result);
   } catch (error) {
     console.error("Error adding tour:", error);
     return res
       .status(500)
-      .json({ message: "Error adding tour:", error: String(error) });
+      .json({ message: "Error adding tour", error: String(error) });
   }
 };
-
 
 const viewTour = async (req, res) => {
   try {
     const allTour = await readJSONData("utils/tours.json");
-    return res.status(200).json(allTour);
+    return res.status(201).json(allTour);
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }
