@@ -29,8 +29,11 @@ app.get('/view-tour', viewTour)
 const { createTrainTicketReservation } = require('./utils/TicketUtil')
 app.post('/add-ticket-booking', createTrainTicketReservation);
 
-const { addHotel, viewHotels } = require('./utils/HotelUtil')
+const { addHotel } = require('./utils/HotelUtil')
 app.post('/add-hotel', addHotel);
+
+
+const { viewHotels } = require('./utils/ViewHotelUtils')
 app.get('/view-hotels', viewHotels);
 
 server = app.listen(PORT, function () {
