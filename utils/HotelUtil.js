@@ -56,7 +56,7 @@ async function addHotel(req, res) {
             return res.status(500).json({ message: 'Validation error: Hotel location is invalid' });
         }
         if (!hotelOwner.includes('@') || !hotelOwner.includes('.')) {
-            return res.status(500).json({ message: 'Validation error: Invalid email format!' });
+            return res.status(500).json({ message: 'Validation error: Invalid email format' });
         }
         if (hotelDescription.length < 6) {
             return res.status(500).json({ message: 'Validation error: Description too short' });
