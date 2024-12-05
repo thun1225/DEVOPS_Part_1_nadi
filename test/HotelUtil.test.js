@@ -100,7 +100,7 @@ describe('Hotel API', () => {
         });
 
         // Test case for hotel description length validation
-        it('should return 500 status for invalid description if the input less than 6 characters)', (done) => {
+        it('should return 500 status for invalid description if the input is less than 6 characters)', (done) => {
             chai.request(baseUrl)
                 .post('/add-hotel')
                 .send({
