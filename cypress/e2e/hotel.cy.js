@@ -25,7 +25,7 @@ describe(' Hotel Booking Frontend', () => {
 
   });
 
-//test case for empty field
+//test case for empty fields
   it("should be unable to add hotel: empty fields", () => {
     cy.visit(baseUrl);
 
@@ -84,7 +84,7 @@ describe(' Hotel Booking Frontend', () => {
   
   
   });
-  
+
   //test case for invalid email format
   it("should be unable to add hotel: invalid email format", () => {
     cy.visit(baseUrl);

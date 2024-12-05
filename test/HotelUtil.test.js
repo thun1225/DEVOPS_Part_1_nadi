@@ -25,7 +25,7 @@ describe('Hotel API', () => {
 
     // Test suite for adding hotels
     describe('POST /add-hotel', () => {
-        it('should return 500 for invalid email format', (done) => {
+        it('should return 500 status for invalid email format', (done) => {
             chai.request(baseUrl)
                 .post('/add-hotel')
                 .send({
@@ -65,7 +65,7 @@ describe('Hotel API', () => {
 
 
         //test case for missing hotel name
-        it('should return 500 for missing hotel name', (done) => {
+        it('should return 500 status for missing hotel name', (done) => {
             chai.request(baseUrl)
                 .post('/add-hotel')
                 .send({
@@ -83,7 +83,7 @@ describe('Hotel API', () => {
     
 
         // test case for hotel location validation
-        it('should return 500 for invalid hotel location if the input is less than 3 characters)', (done) => {
+        it('should return 500 status for invalid hotel location if the input is less than 3 characters)', (done) => {
             chai.request(baseUrl)
                 .post('/add-hotel')
                 .send({
@@ -100,7 +100,7 @@ describe('Hotel API', () => {
         });
 
         // Test case for hotel description length validation
-        it('should return 500 for invalid description if the input less than 6 characters)', (done) => {
+        it('should return 500 status for invalid description if the input less than 6 characters)', (done) => {
             chai.request(baseUrl)
                 .post('/add-hotel')
                 .send({
@@ -115,7 +115,7 @@ describe('Hotel API', () => {
                     done();
                 });
         });
-        it('should return 500 for hotel name exceeding maximum length', (done) => {
+        it('should return 500 status for hotel name exceeding maximum length', (done) => {
             const longHotelName = 'A'.repeat(1001); //the limit is 1000 characters
             chai.request(baseUrl)
                 .post('/add-hotel')
