@@ -1,0 +1,9 @@
+services:
+  build-hmw:
+    build:
+      context: .
+      dockerfile: Dockerfile 
+    image: nadidvops/hmw-docker-img:latest
+    container_name: hmw-docker-container
+    ports:
+      - "8000:5050" 
