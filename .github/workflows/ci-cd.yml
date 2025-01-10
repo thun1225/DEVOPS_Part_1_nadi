@@ -27,13 +27,22 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      # Step 4: Run backend tests
+      # Step 4: Fix permissions for local binaries
+      - name: Fix Permissions for Local Binaries
+        run: chmod +x ./node_modules/.bin/*
+
+      # Step 5: Debug NYC Installation (optional, for troubleshooting)
+      - name: Debug NYC Installation
+        run: ./node_modules/.bin/nyc --version
+
+      # Step 6: Run backend tests
       - name: Run Backend Tests
         run: npm run backend-test
 
-      # Step 5: Instrument frontend and run frontend tests
+      # Step 7: Instrument frontend code
       - name: Instrument Frontend Code
         run: npm run frontend-instrument
 
+      # Step 8: Run frontend tests
       - name: Run Frontend Tests
         run: npm run frontend-test

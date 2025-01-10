@@ -3,13 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "backend-test": "nyc --nycrc-path .nycrc-backend mocha",
-    "frontend-instrument": "xcopy public instrumented /I /E /Y & nyc instrument public instrumented",
-    "frontend-test": "rmdir -r .nyc_output & nyc --nycrc-path .nycrc-frontend cypress run",
-
-    
-    "frontend-test-chrome": "rmdir -r .nyc_output & nyc --nycrc-path .nycrc-frontend cypress run --browser chrome",
-    "frontend-test-edge": "rmdir -r .nyc_output & nyc --nycrc-path .nycrc-frontend cypress run --browser edge"
+    "backend-test": "./node_modules/.bin/nyc --nycrc-path .nycrc-backend mocha",
+    "frontend-instrument": "cp -R public instrumented && ./node_modules/.bin/nyc instrument public instrumented",
+    "frontend-test": "rm -rf .nyc_output && ./node_modules/.bin/nyc --nycrc-path .nycrc-frontend cypress run",
+    "frontend-test-chrome": "rm -rf .nyc_output && ./node_modules/.bin/nyc --nycrc-path .nycrc-frontend cypress run --browser chrome",
+    "frontend-test-edge": "rm -rf .nyc_output && ./node_modules/.bin/nyc --nycrc-path .nycrc-frontend cypress run --browser edge"
   },
   "keywords": [],
   "author": "",
