@@ -1,3 +1,53 @@
+# # name: CI/CD Pipeline
+
+# # on:
+# #   push:
+# #     branches:
+# #       - main
+# #   pull_request:
+# #     branches:
+# #       - main
+
+# # jobs:
+# #   build-and-test:
+# #     runs-on: ubuntu-latest
+
+# #     steps:
+# #       # Step 1: Checkout the repository
+# #       - name: Checkout Code
+# #         uses: actions/checkout@v3
+
+# #       # Step 2: Set up Node.js
+# #       - name: Set up Node.js
+# #         uses: actions/setup-node@v3
+# #         with:
+# #           node-version: '16'
+
+# #       # Step 3: Install dependencies
+# #       - name: Install Dependencies
+# #         run: npm install
+
+# #       # Step 4: Fix permissions for local binaries
+# #       - name: Fix Permissions for Local Binaries
+# #         run: chmod +x ./node_modules/.bin/*
+
+# #       # Step 5: Debug NYC Installation (optional, for troubleshooting)
+# #       - name: Debug NYC Installation
+# #         run: ./node_modules/.bin/nyc --version
+
+# #       # Step 6: Run backend tests
+# #       - name: Run Backend Tests
+# #         run: npm run backend-test
+
+# #       # Step 7: Instrument frontend code
+# #       - name: Instrument Frontend Code
+# #         run: npm run frontend-instrument
+
+# #       # Step 8: Run frontend tests
+# #       - name: Run Frontend Tests
+# #         run: npm run frontend-test
+
+
 # name: CI/CD Pipeline
 
 # on:
@@ -31,78 +81,28 @@
 #       - name: Fix Permissions for Local Binaries
 #         run: chmod +x ./node_modules/.bin/*
 
-#       # Step 5: Debug NYC Installation (optional, for troubleshooting)
-#       - name: Debug NYC Installation
-#         run: ./node_modules/.bin/nyc --version
+#       # Step 5: Cache Cypress Binary
+#       - name: Cache Cypress Binary
+#         uses: actions/cache@v3
+#         with:
+#           path: ~/.cache/Cypress
+#           key: ${{ runner.os }}-cypress-${{ hashFiles('package-lock.json') }}
+#           restore-keys: |
+#             ${{ runner.os }}-cypress-
 
-#       # Step 6: Run backend tests
+#       # Step 6: Install Cypress Binary
+#       - name: Install Cypress Binary
+#         run: npx cypress install
+
+#       # Step 7: Run backend tests
 #       - name: Run Backend Tests
 #         run: npm run backend-test
 
-#       # Step 7: Instrument frontend code
+#       # Step 8: Instrument frontend code
 #       - name: Instrument Frontend Code
 #         run: npm run frontend-instrument
 
-#       # Step 8: Run frontend tests
+#       # Step 9: Run frontend tests
 #       - name: Run Frontend Tests
 #         run: npm run frontend-test
-
-
-name: CI/CD Pipeline
-
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
-
-jobs:
-  build-and-test:
-    runs-on: ubuntu-latest
-
-    steps:
-      # Step 1: Checkout the repository
-      - name: Checkout Code
-        uses: actions/checkout@v3
-
-      # Step 2: Set up Node.js
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16'
-
-      # Step 3: Install dependencies
-      - name: Install Dependencies
-        run: npm install
-
-      # Step 4: Fix permissions for local binaries
-      - name: Fix Permissions for Local Binaries
-        run: chmod +x ./node_modules/.bin/*
-
-      # Step 5: Cache Cypress Binary
-      - name: Cache Cypress Binary
-        uses: actions/cache@v3
-        with:
-          path: ~/.cache/Cypress
-          key: ${{ runner.os }}-cypress-${{ hashFiles('package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-cypress-
-
-      # Step 6: Install Cypress Binary
-      - name: Install Cypress Binary
-        run: npx cypress install
-
-      # Step 7: Run backend tests
-      - name: Run Backend Tests
-        run: npm run backend-test
-
-      # Step 8: Instrument frontend code
-      - name: Instrument Frontend Code
-        run: npm run frontend-instrument
-
-      # Step 9: Run frontend tests
-      - name: Run Frontend Tests
-        run: npm run frontend-test
 
