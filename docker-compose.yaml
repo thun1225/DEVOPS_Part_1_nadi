@@ -3,7 +3,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile 
-    image: nadidvops/hmw-docker-img:v4
+    image: nadidvops/hmw-docker-img:v5
     container_name: hmw-docker-container
     ports:
       - "8000:5050" 
